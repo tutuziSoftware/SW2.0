@@ -28,15 +28,18 @@ describe("PC", function() {
             skills:[
                 //ここでテストするのはあくまで初期値で、
                 //技能上昇や技能により使える技の明示はここで行う事とする
-                Skill.SORCERER,
-                Skill.SAGE,
-                Skill.FENCER,
-                Skill.SHOOTER,
-                Skill.SCOUT,
-                Skill.MAGITECH
+                {
+                    name:"ソーサラー",
+                    lv:1
+                },
+                Skill["セージ"],
+                Skill["フェンサー"],
+                Skill["シューター"],
+                Skill["スカウト"],
+                Skill["マギテック"]
             ],
             battle_skills:[
-                BattleSkills.HOMING_MAGIC
+                BattleSkills["魔法誘導"]
             ],
             //合計名誉点
             max_honor:0,
@@ -47,8 +50,8 @@ describe("PC", function() {
                 Arms["ショートソード"],
                 Arms["トラドール"]
             ],
-            armor:Armor.SOFTLEATHER,
-            shield:Shield.BUCKLER,
+            armor:Armor["ソフトレザー"],
+            shield:Shield["バックラー"],
             equipments:{
                 neck:Equipment["首飾り"],
                 left_hand:new Equipment({
@@ -88,7 +91,7 @@ describe("PC", function() {
             ]
         });
 
-        expect(pc.hp, 10);
-        expect(pc.mp, 24);
+        expect(pc.hp).toBe(10);
+        expect(pc.mp).toBe(24);
     });
 });
