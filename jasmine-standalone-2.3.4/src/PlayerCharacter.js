@@ -1,39 +1,55 @@
-/**
- * プレイヤーキャラクターを表現します。
- * @constructor
- */
-function PlayerCharacter(json){
-    [
-        "lif",
-        "damage",
-        "pow"
-    ].forEach(function(name){
-        if(typeof json[name] !== "number") throw 0;
-    });
+var PlayerCharacter = (function(){
+    /**
+     * プレイヤーキャラクターを表現します。
+     * @constructor
+     */
+    return function PlayerCharacter(json){
+        _check(json);
 
-    [
-        "skills"
-    ].forEach(function(name){
-        if(!Array.isArray(json[name])) throw 0;
-    });
+        var _lif = json.lif;
+        var _skills = json.skills;
+        var _damage = json.damage;
+        var _pow = json.pow;
 
-    var _lif = json.lif;
-    var _skills = json.skills;
-    var _damage = json.damage;
-    var _pow = json.pow;
-
-    var self = Object.create(PlayerCharacter.prototype, {
-        hp:{
-            get:function(){
-                return _lif + _skills.reduce(_countLv, 0) * 3 - _damage;
+        //publicプロパティ群
+        var self = Object.create(PlayerCharacter.prototype, {
+            hp:{
+                get:function(){
+                    return _lif + _skills.reduce(_countLv, 0) * 3 - _damage;
+                }
+            },
+            mp:{
+                get:function(){
+                    return _pow + _skills.reduce(_countMagicSkill, 0) * 3
+                }
             }
-        },
-        mp:{
-            get:function(){
-                return _pow + _skills.reduce(_countMagicSkill, 0) * 3
-            }
-        }
-    });
+        });
+
+        return self;
+    };
+
+    //private関数群
+
+    /**
+     * オブジェクトの型チェックを行います。
+     * @param json
+     * @private
+     */
+    function _check(json){
+        [
+            "lif",
+            "damage",
+            "pow"
+        ].forEach(function(name){
+                if(typeof json[name] !== "number") throw 0;
+            });
+
+        [
+            "skills"
+        ].forEach(function(name){
+            if(!Array.isArray(json[name])) throw 0;
+        });
+    }
 
     /**
      * レベルを判定します。
@@ -66,6 +82,4 @@ function PlayerCharacter(json){
             return count;
         }
     }
-
-    return self;
-};
+})();
