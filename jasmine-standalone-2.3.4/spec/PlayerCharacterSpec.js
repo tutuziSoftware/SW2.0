@@ -1,5 +1,5 @@
 describe("PC", function() {
-    it('生成', function(){
+    it('生成と各値のチェック', function(){
         var pc = new PlayerCharacter({
             name:"アーチャー",
             sex:Sex.MAN,
@@ -32,11 +32,11 @@ describe("PC", function() {
                     name:"ソーサラー",
                     lv:1
                 },
-                Skill["セージ"],
-                Skill["フェンサー"],
-                Skill["シューター"],
-                Skill["スカウト"],
-                Skill["マギテック"]
+                Skill.Type["セージ"],
+                Skill.Type["フェンサー"],
+                Skill.Type["シューター"],
+                Skill.Type["スカウト"],
+                Skill.Type["マギテック"]
             ],
             battle_skills:[
                 BattleSkills["魔法誘導"]
@@ -92,6 +92,6 @@ describe("PC", function() {
         });
 
         expect(pc.hp).toBe(10);
-        expect(pc.mp).toBe(24);
+        expect(pc.mp).toBe(27);
     });
 });
