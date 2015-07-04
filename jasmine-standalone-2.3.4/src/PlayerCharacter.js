@@ -6,21 +6,21 @@ var PlayerCharacter = (function(){
     return function PlayerCharacter(json){
         _check(json);
 
-        var _lif = json.race["体"] + json.spec.d;
+        var _life = json.race["体"] + json.spec.d;
         var _skills = json.skills;
         var _damage = json.damage;
-        var _pow = json.race["心"] + json.spec.f;
+        var _power = json.race["心"] + json.spec.f;
 
         //publicプロパティ群
         var self = Object.create(PlayerCharacter.prototype, {
             hp:{
                 get:function(){
-                    return _lif + _skills.reduce(_countLv, 0) * 3 - _damage;
+                    return _life + _skills.reduce(_countLv, 0) * 3 - _damage;
                 }
             },
             mp:{
                 get:function(){
-                    return _pow + _skills.reduce(_countMagicSkill, 0) * 3
+                    return _power + _skills.reduce(_countMagicSkill, 0) * 3
                 }
             }
         });
