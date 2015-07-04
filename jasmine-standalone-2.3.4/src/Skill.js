@@ -1,26 +1,53 @@
 function Skill(){}
 
-Skill["ソーサラー"] = {
-    name:"ソーサラー",
-    lv:1
+
+Skill.MAGIC_SKILLS = {
+    "ソーサラー":{
+        name:"ソーサラー",
+        lv:1
+    },
+    "コンジャラー":{
+        name:"コンジャラー",
+        lv:1
+    },
+    "プリースト":{
+        name:"プリースト",
+        lv:1
+    },
+    "フェアリーテイマー":{
+        name:"フェアリーテイマー",
+        lv:1
+    },
+    "マギテック":{
+        name:"マギテック",
+        lv:1
+    }
 };
-Skill["セージ"] = {
+
+
+Skill.Type = {};
+
+Skill.Type["セージ"] = {
     name:"セージ",
     lv:1
 };
-Skill["フェンサー"] = {
+Skill.Type["フェンサー"] = {
     name:"フェンサー",
     lv:1
 };
-Skill["シューター"] = {
+Skill.Type["シューター"] = {
     name:"シューター",
     lv:1
 };
-Skill["スカウト"] = {
+Skill.Type["スカウト"] = {
     name:"スカウト",
     lv:1
 };
-Skill["マギテック"] = {
-    name:"マギテック",
-    lv:1
+
+Object.keys(Skill.MAGIC_SKILLS).forEach(function(name){
+    Skill.Type[name] = Skill.MAGIC_SKILLS[name];
+});
+
+Skill.isMagic = function(skill){
+    return skill.name in Skill.MAGIC_SKILLS;
 };
