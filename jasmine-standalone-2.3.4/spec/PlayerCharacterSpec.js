@@ -6,18 +6,14 @@ describe("PC", function() {
             age:256,
             //生まれ
             race:Race.ELF.SORCERER,
-            //skillfull:器用度
-            ski:15,
-            //敏捷
-            dex:18,
-            //筋力
-            str:9,
-            //life:生命力
-            lif:7,
-            //知力
-            int:20,
-            //精神力
-            pow:21,
+            spec:{
+                a:5,
+                b:8,
+                c:6,
+                d:4,
+                e:7,
+                f:9
+            },
             //経験値
             exp:1530,
             //生命力+冒険者Lv*3-damageで残りHPを表現するものとする。
@@ -92,6 +88,6 @@ describe("PC", function() {
         });
 
         expect(pc.hp).toBe(10);
-        expect(pc.mp).toBe(27);
+        expect(pc.mp).toBe(28);
     });
 });
