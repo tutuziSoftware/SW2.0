@@ -25,7 +25,7 @@ function PlayerCharacter(json){
     var self = Object.create(PlayerCharacter.prototype, {
         hp:{
             get:function(){
-                return _lif + _lv() * 3 - _damage;
+                return _lif + _skills.reduce(_countLv, 0) * 3 - _damage;
             }
         },
         mp:{
@@ -35,16 +35,30 @@ function PlayerCharacter(json){
         }
     });
 
-    function _lv(){
-        return _skills.reduce(function(lv, skill){
-            if(skill.lv > lv){
-                return skill.lv;
-            }else{
-                return lv;
-            }
-        }, 0);
+    /**
+     * レベルを判定します。
+     * この関数はreduce専用です。
+     * @param lv
+     * @param skill
+     * @returns {*}
+     * @private
+     */
+    function _countLv(lv, skill){
+        if(skill.lv > lv){
+            return skill.lv;
+        }else{
+            return lv;
+        }
     }
 
+    /**
+     * 魔法技能数を判定します。
+     * この関数はreduce専用です。
+     * @param count
+     * @param skill
+     * @returns {*}
+     * @private
+     */
     function _countMagicSkill(count, skill){
         if(Skill.isMagic(skill)){
             return count + 1;
