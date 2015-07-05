@@ -99,5 +99,9 @@ describe("PC", function() {
         expect(pc["生命力ボーナス"]).toBe(1);
         expect(pc["知力"]).toBe(20);
         expect(pc["知力ボーナス"]).toBe(3);
+        expect(pc["精神力"]).toBe(22);
+        expect(pc["精神力ボーナス"]).toBe(3);
+        expect(pc["生命抵抗力"]).toBe(2);
+        expect(pc["精神抵抗力"]).toBe(4);
     });
 });

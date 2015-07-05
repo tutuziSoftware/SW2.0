@@ -77,6 +77,26 @@ var PlayerCharacter = (function(){
                 get:function(){
                     return Math.floor(_INT / 6);
                 }
+            },
+            "精神力":{
+                get:function(){
+                    return _POWER;
+                }
+            },
+            "精神力ボーナス":{
+                get:function(){
+                    return Math.floor(_POWER / 6);
+                }
+            },
+            "生命抵抗力":{
+                get:function(){
+                    return _skills.reduce(_countLv, 0) + this["生命力ボーナス"];
+                }
+            },
+            "精神抵抗力":{
+                get:function(){
+                    return _skills.reduce(_countLv, 0) + this["精神力ボーナス"];
+                }
             }
         });
 
