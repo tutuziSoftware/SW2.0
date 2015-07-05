@@ -56,6 +56,16 @@ var PlayerCharacter = (function(){
                 get:function(){
                     return Math.floor(_MUSCULAR / 6);
                 }
+            },
+            "生命力":{
+                get:function(){
+                    return _LIFE;
+                }
+            },
+            "生命力ボーナス":{
+                get:function(){
+                    return Math.floor(_LIFE / 6);
+                }
             }
         });
 

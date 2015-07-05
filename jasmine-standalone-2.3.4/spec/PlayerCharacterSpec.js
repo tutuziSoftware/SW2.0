@@ -95,5 +95,7 @@ describe("PC", function() {
         expect(pc["敏捷度ボーナス"]).toBe(3);
         expect(pc["筋力"]).toBe(10);
         expect(pc["筋力ボーナス"]).toBe(1);
+        expect(pc["生命力"]).toBe(7);
+        expect(pc["生命力ボーナス"]).toBe(1);
     });
 });
