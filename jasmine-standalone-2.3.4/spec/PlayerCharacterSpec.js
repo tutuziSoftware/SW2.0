@@ -89,5 +89,7 @@ describe("PC", function() {
 
         expect(pc.hp).toBe(10);
         expect(pc.mp).toBe(28);
+        expect(pc["器用度"]).toBe(15);
+        expect(pc["器用度ボーナス"]).toBe(2);
     });
 });

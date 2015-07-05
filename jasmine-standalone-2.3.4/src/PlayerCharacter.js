@@ -10,6 +10,8 @@ var PlayerCharacter = (function(){
         var _skills = json.skills;
         var _damage = json.damage;
         var _power = json.race["心"] + json.spec.f;
+        //器用度
+        var _skillfull = json.race["技"] + json.spec.a;
 
         //publicプロパティ群
         var self = Object.create(PlayerCharacter.prototype, {
@@ -21,6 +23,16 @@ var PlayerCharacter = (function(){
             mp:{
                 get:function(){
                     return _power + _skills.reduce(_countMagicSkill, 0) * 3
+                }
+            },
+            "器用度":{
+                get:function(){
+                    return _skillfull;
+                }
+            },
+            "器用度ボーナス":{
+                get:function(){
+                    return Math.floor(_skillfull / 6);
                 }
             }
         });
