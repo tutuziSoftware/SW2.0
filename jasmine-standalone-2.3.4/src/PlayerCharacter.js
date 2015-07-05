@@ -15,6 +15,7 @@ var PlayerCharacter = (function(){
         var _SPEED = json.race["技"] + json.spec.b;
         var _MUSCULAR = json.race["体"] + json.spec.c;
         var _INT = json.race["心"] + json.spec.e;
+        var _RACE = json.race;
 
         //publicプロパティ群
         var self = Object.create(PlayerCharacter.prototype, {
@@ -96,6 +97,19 @@ var PlayerCharacter = (function(){
             "精神抵抗力":{
                 get:function(){
                     return _skills.reduce(_countLv, 0) + this["精神力ボーナス"];
+                }
+            },
+            "言語":{
+                get:function(){
+                    var language = [
+                        _RACE.language
+                    ];
+
+                    _skills.forEach(function(skill){
+                        if("language" in skill)language.push(skill.language);
+                    });
+
+                    return language;
                 }
             }
         });
