@@ -9,7 +9,7 @@ describe("PC", function() {
             spec:{
                 a:5,
                 b:8,
-                c:6,
+                c:7,
                 d:4,
                 e:7,
                 f:9
@@ -93,5 +93,7 @@ describe("PC", function() {
         expect(pc["器用度ボーナス"]).toBe(2);
         expect(pc["敏捷度"]).toBe(18);
         expect(pc["敏捷度ボーナス"]).toBe(3);
+        expect(pc["筋力"]).toBe(10);
+        expect(pc["筋力ボーナス"]).toBe(1);
     });
 });
