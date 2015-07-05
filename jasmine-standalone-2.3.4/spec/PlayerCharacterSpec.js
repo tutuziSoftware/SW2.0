@@ -26,7 +26,8 @@ describe("PC", function() {
                 //技能上昇や技能により使える技の明示はここで行う事とする
                 {
                     name:"ソーサラー",
-                    lv:1
+                    lv:1,
+                    language:"魔法文明語"
                 },
                 Skill.Type["セージ"],
                 Skill.Type["フェンサー"],
@@ -103,5 +104,9 @@ describe("PC", function() {
         expect(pc["精神力ボーナス"]).toBe(3);
         expect(pc["生命抵抗力"]).toBe(2);
         expect(pc["精神抵抗力"]).toBe(4);
+        expect(Array.isArray(pc["言語"])).toBeTruthy();
+        expect(pc["言語"]).toContain("エルフ語");
+        expect(pc["言語"]).toContain("魔動機文明語");
+        expect(pc["言語"]).toContain("魔法文明語");
     });
 });

@@ -20,7 +20,8 @@ Skill.MAGIC_SKILLS = {
     },
     "マギテック":{
         name:"マギテック",
-        lv:1
+        lv:1,
+        language:"魔動機文明語"
     }
 };
 
