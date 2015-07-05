@@ -6,24 +6,38 @@ var PlayerCharacter = (function(){
     return function PlayerCharacter(json){
         _check(json);
 
-        var _life = json.race["体"] + json.spec.d;
+        var _LIFE = json.race["体"] + json.spec.d;
         var _skills = json.skills;
         var _damage = json.damage;
-        var _power = json.race["心"] + json.spec.f;
+        var _POWER = json.race["心"] + json.spec.f;
+        //器用度
+        var _SKILLFULL = json.race["技"] + json.spec.a;
 
         //publicプロパティ群
         var self = Object.create(PlayerCharacter.prototype, {
             hp:{
                 get:function(){
-                    return _life + _skills.reduce(_countLv, 0) * 3 - _damage;
+                    return _LIFE + _skills.reduce(_countLv, 0) * 3 - _damage;
                 }
             },
             mp:{
                 get:function(){
-                    return _power + _skills.reduce(_countMagicSkill, 0) * 3
+                    return _POWER + _skills.reduce(_countMagicSkill, 0) * 3
+                }
+            },
+            "器用度":{
+                get:function(){
+                    return _SKILLFULL;
+                }
+            },
+            "器用度ボーナス":{
+                get:function(){
+                    return Math.floor(_SKILLFULL / 6);
                 }
             }
         });
+
+        json = null;
 
         return self;
     };
