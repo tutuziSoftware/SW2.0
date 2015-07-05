@@ -91,5 +91,7 @@ describe("PC", function() {
         expect(pc.mp).toBe(28);
         expect(pc["器用度"]).toBe(15);
         expect(pc["器用度ボーナス"]).toBe(2);
+        expect(pc["敏捷度"]).toBe(18);
+        expect(pc["敏捷度ボーナス"]).toBe(3);
     });
 });

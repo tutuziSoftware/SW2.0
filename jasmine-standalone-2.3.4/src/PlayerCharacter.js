@@ -12,6 +12,7 @@ var PlayerCharacter = (function(){
         var _POWER = json.race["心"] + json.spec.f;
         //器用度
         var _SKILLFULL = json.race["技"] + json.spec.a;
+        var _SPEED = json.race["技"] + json.spec.b;
 
         //publicプロパティ群
         var self = Object.create(PlayerCharacter.prototype, {
@@ -33,6 +34,16 @@ var PlayerCharacter = (function(){
             "器用度ボーナス":{
                 get:function(){
                     return Math.floor(_SKILLFULL / 6);
+                }
+            },
+            "敏捷度":{
+                get:function(){
+                    return _SPEED;
+                }
+            },
+            "敏捷度ボーナス":{
+                get:function(){
+                    return Math.floor(_SPEED / 6);
                 }
             }
         });
