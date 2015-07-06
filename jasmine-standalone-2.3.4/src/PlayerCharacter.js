@@ -111,6 +111,23 @@ var PlayerCharacter = (function(){
 
                     return language;
                 }
+            },
+            "全力移動":{
+                get:function(){
+                    return this["敏捷度"] * 3;
+                }
+            },
+            "通常移動":{
+                get:function(){
+                    return this["敏捷度"];
+                }
+            },
+            "制限移動":{
+                get:function(){
+                    if(this["敏捷度"] <= 3) return this["敏捷度"];
+
+                    return 3;
+                }
             }
         });
 

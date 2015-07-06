@@ -108,5 +108,8 @@ describe("PC", function() {
         expect(pc["言語"]).toContain("エルフ語");
         expect(pc["言語"]).toContain("魔動機文明語");
         expect(pc["言語"]).toContain("魔法文明語");
+        expect(pc["全力移動"]).toBe(18 * 3);
+        expect(pc["通常移動"]).toBe(18);
+        expect(pc["制限移動"]).toBe(3);
     });
 });
