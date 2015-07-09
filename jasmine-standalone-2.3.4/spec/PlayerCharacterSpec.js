@@ -2,7 +2,7 @@ describe("PC", function() {
     var pc;
 
     beforeEach(function(){
-        = new PlayerCharacter({
+        pc = new PlayerCharacter({
             name:"アーチャー",
             sex:Sex.MAN,
             age:256,
@@ -87,7 +87,8 @@ describe("PC", function() {
                     name:"弾丸",
                     count: 11
                 }
-            ]
+            ],
+            "発声":true
         });
     });
 
@@ -121,6 +122,12 @@ describe("PC", function() {
     });
 
     it("発声可不可判定", function(){
+        pc["発声"] = false;
+        expect(pc["発声"]).toBe(false);
 
+        pc["発声"] = true;
+        expect(pc["発声"]).toBe(true);
+
+        //TODO ソーサラー、マギテックは技能使用不可
     });
 });

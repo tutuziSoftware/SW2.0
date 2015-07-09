@@ -16,6 +16,7 @@ var PlayerCharacter = (function(){
         var _MUSCULAR = json.race["体"] + json.spec.c;
         var _INT = json.race["心"] + json.spec.e;
         var _RACE = json.race;
+        var _call = json["発声"];
 
         //publicプロパティ群
         var self = Object.create(PlayerCharacter.prototype, {
@@ -131,7 +132,12 @@ var PlayerCharacter = (function(){
             },
             "発声":{
                 get:function(){
-                    return true;
+                    return _call;
+                },
+                set:function(call){
+                    if(typeof call != "boolean") return;
+
+                    _call = call;
                 }
             }
         });
@@ -170,6 +176,8 @@ var PlayerCharacter = (function(){
         ].forEach(function(name){
             if(!Array.isArray(json[name])) throw 0;
         });
+
+        if(typeof json["発声"] !== "boolean") throw 0;
     }
 
     /**
