@@ -128,6 +128,11 @@ var PlayerCharacter = (function(){
 
                     return 3;
                 }
+            },
+            "発声":{
+                get:function(){
+                    return true;
+                }
             }
         });
 

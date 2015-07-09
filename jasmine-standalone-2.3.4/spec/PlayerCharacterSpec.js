@@ -111,5 +111,12 @@ describe("PC", function() {
         expect(pc["全力移動"]).toBe(18 * 3);
         expect(pc["通常移動"]).toBe(18);
         expect(pc["制限移動"]).toBe(3);
+        //追加ダメージは攻撃時にどのような攻撃をしたかで変わる(P160)
+        //expect(pc["追加ダメージ"]).toBe(2);
+        expect(pc["発声"]).toBe(true);
+    });
+
+    it("発声可不可判定", function(){
+        
     });
 });
