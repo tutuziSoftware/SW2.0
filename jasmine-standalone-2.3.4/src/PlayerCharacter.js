@@ -139,6 +139,34 @@ var PlayerCharacter = (function(){
 
                     _call = call;
                 }
+            },
+            "行為判定":{
+                get:function(){
+                    var self = this;
+
+                    var ret = {
+                        "隠蔽判定":function(skillName){
+                            //TODO _skillsを配列からオブジェクトにすると楽なのでは
+                            var skills = _skills.filter(function(skill){
+                                return skill.name == Skill.Type["スカウト"].name ||
+                                        skill.name == Skill.Type["レンジャー"].name
+                            });
+
+                            var skill = skills.filter(function(skill){
+                                return skillName == skill.name;
+                            });
+
+                            if(skill.length){
+                                return self["器用度ボーナス"] + skill[0].lv;
+                            }else{
+                                return self["器用度ボーナス"];
+                            }
+                        }
+                    };
+
+                    Object.freeze(ret);
+                    return ret;
+                }
             }
         });
 
