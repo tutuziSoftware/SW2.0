@@ -23,6 +23,7 @@ describe("PC", function() {
             damage:0,
             //精神力+魔法使い系技能の合計*3-reduced_manaでMPを表現する
             reduced_mana:0,
+            //TODO ここはArrayからObjectに変更する
             skills:[
                 //ここでテストするのはあくまで初期値で、
                 //技能上昇や技能により使える技の明示はここで行う事とする
@@ -127,7 +128,10 @@ describe("PC", function() {
 
         pc["発声"] = true;
         expect(pc["発声"]).toBe(true);
+    });
 
-        //TODO ソーサラー、マギテックは技能使用不可
+    it("行為判定", function(){
+        expect(pc["行為判定"]["隠蔽判定"]("スカウト")).toBe(3);
+        expect(pc["行為判定"]["隠蔽判定"]("レンジャー")).toBe(2);
     });
 });

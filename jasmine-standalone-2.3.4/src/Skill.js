@@ -44,6 +44,10 @@ Skill.Type["スカウト"] = {
     name:"スカウト",
     lv:1
 };
+Skill.Type["レンジャー"] = {
+    name:"レンジャー",
+    lv:1
+};
 
 Object.keys(Skill.MAGIC_SKILLS).forEach(function(name){
     Skill.Type[name] = Skill.MAGIC_SKILLS[name];
